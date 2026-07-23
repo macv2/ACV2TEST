@@ -1,0 +1,24 @@
+---
+- name: Export AAP 2.4/2.6 Configuration
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    controller_hostname: "https://example.com"
+    controller_username: "admin"
+    controller_password: "SourcePassword123"
+    controller_validate_certs: false
+    output_path: "/tmp/aap_export"
+
+  tasks:
+    - name: Create output directory
+      ansible.builtin.file:
+        path: "{{ output_path }}"
+        state: directory
+
+    - name: Export all controller objects
+      ansible.builtin.include_role:
+        name: infra.controller_configuration.file_dump
+      vars:
+        file_dump_output_path: "{{ output_path }}"
+        clean_assets: true
