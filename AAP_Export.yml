@@ -4,9 +4,9 @@
   connection: local
   gather_facts: false
   vars:
-    controller_hostname: "https://example.com"
+    controller_hostname: "localhost"
     controller_username: "admin"
-    controller_password: "SourcePassword123"
+    controller_password: "ansible123!"
     controller_validate_certs: false
     output_path: "/tmp/aap_export"
 
