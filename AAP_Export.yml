@@ -9,6 +9,7 @@
     controller_password: "ansible123!"
     controller_validate_certs: false
     output_path: "/tmp/aap_export"
+    controller_oauthtoken: ""
     valid_tags:
       - all
       - settings
