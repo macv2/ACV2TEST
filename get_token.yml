@@ -10,7 +10,7 @@
   tasks:
     - name: Generate OAuth2 Token
       ansible.builtin.uri:
-        url: "https://aap.9nzb6.sandbox2989.opentlc.com/api/controller/v2/applications/2/tokens/"
+        url: "https://aap.9nzb6.sandbox2989.opentlc.com/api/controller/v2/applications/1/tokens/"
         method: POST
         user: "lab-user"
         password: "MTE3MTY3NDIz"
@@ -26,7 +26,7 @@
 
     - name: Example API Call using Bearer Token
       ansible.builtin.uri:
-        url: "https://aap.9nzb6.sandbox2989.opentlc.com/api/controller/v2/applications/2/tokens/"
+        url: "https://aap.9nzb6.sandbox2989.opentlc.com/api/controller/v2/applications/1/tokens/"
         method: GET
         headers:
           Authorization: "Bearer {{ aap_token }}"
