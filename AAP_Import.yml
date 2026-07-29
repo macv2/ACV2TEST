@@ -4,15 +4,16 @@
   connection: local
   gather_facts: false
   vars:
-    controller_hostname: "https://example.com"
-    controller_username: "admin"
-    controller_password: "TargetPassword123"
+    controller_hostname: "aap.9nzb6.sandbox2989.opentlc.com"
+    controller_username: "lab-user"
+    controller_password: "MTE3MTY3NDIz"
     controller_validate_certs: false
     input_path: "/tmp/aap_export"
+    controller_oauthtoken: "nsf6kcM4A6ojmXkL3hA7R4A3t5DAQL"    
 
   tasks:
     - name: Import configuration assets
-      ansible.builtin.include_role:
-        name: infra.controller_configuration.dispatch
+      include_role:
+        name: dispatch
       vars:
         controller_config_dir: "{{ input_path }}"
