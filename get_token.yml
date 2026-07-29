@@ -1,0 +1,39 @@
+---
+- name: Authenticate with AAP Controller and Get Token
+  hosts: localhost
+  gather_facts: false
+  vars:
+    controller_host: "localhost"
+    username: "admin"
+    password: "ansible123!"
+
+  tasks:
+    - name: Generate OAuth2 Token
+      ansible.builtin.uri:
+        url: "https://localhost/api/v2/tokens/"
+        method: POST
+        user: "admin"
+        password: "ansible123!"
+        force_basic_auth: true
+        status_code: 201
+        validate_certs: false  # Change to true if using valid SSL certs
+      register: token_response
+      no_log: true  # Prevents credentials and tokens from leaking in logs
+
+    - name: Extract Token into a Fact
+      ansible.builtin.set_fact:
+        aap_token: "{{ token_response.json.token }}"
+
+    - name: Example API Call using Bearer Token
+      ansible.builtin.uri:
+        url: "https://localhost/api/v2/job_templates/"
+        method: GET
+        headers:
+          Authorization: "Bearer {{ aap_token }}"
+        status_code: 200
+        validate_certs: false
+      register: templates_list
+
+    - name: Print templates
+      ansible.builtin.debug:
+        var: templates_list.json.results
