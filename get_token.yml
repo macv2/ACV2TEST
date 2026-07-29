@@ -18,7 +18,7 @@
         status_code: 201
         validate_certs: false  # Change to true if using valid SSL certs
       register: token_response
-      no_log: true  # Prevents credentials and tokens from leaking in logs
+      #no_log: true  # Prevents credentials and tokens from leaking in logs
 
     - name: Extract Token into a Fact
       ansible.builtin.set_fact:
