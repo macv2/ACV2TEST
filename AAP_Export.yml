@@ -18,7 +18,7 @@
 
     - name: Export all controller objects
       ansible.builtin.include_role:
-        name: infra.controller_configuration.file_dump
+        name: filetree_create
       vars:
         file_dump_output_path: "{{ output_path }}"
         clean_assets: true
