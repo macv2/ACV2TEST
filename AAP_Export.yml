@@ -9,6 +9,29 @@
     controller_password: "ansible123!"
     controller_validate_certs: false
     output_path: "/tmp/aap_export"
+    valid_tags:
+      - all
+      - settings
+      - credentials
+      - credential_types
+      - execution_environments
+      - groups
+      - hosts
+      - inventory
+      - inventory_sources
+      - job_templates
+      - notification_templates
+      - organizations
+      - projects
+      - roles
+      - teams
+      - users
+      - workflow_job_templates
+      - workflow_job_template_nodes
+      - instance_groups
+      - applications
+      - labels
+      - schedules
 
   tasks:
     - name: Create output directory
