@@ -1,7 +1,7 @@
 ---
 - name: labels | Get current Labels from the API
   ansible.builtin.set_fact:
-    labels_lookvar: "{{ query(controller_api_plugin, 'api/v2/labels/', query_params=(query_params | combine({'organization': organization_id})) if organization_id
+    labels_lookvar: "{{ query(controller_api_plugin, 'labels/', query_params=(query_params | combine({'organization': organization_id})) if organization_id
       is defined else query_params, host=controller_hostname, oauth_token=controller_oauthtoken, verify_ssl=controller_validate_certs, return_all=true, max_objects=query_controller_api_max_objects)
       }}"
   vars:
