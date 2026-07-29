@@ -12,12 +12,12 @@
 
   tasks:
     - name: Create output directory
-      ansible.builtin.file:
+      file:
         path: "{{ output_path }}"
         state: directory
 
     - name: Export all controller objects
-      ansible.builtin.include_role:
+      include_role:
         name: filetree_create
       vars:
         file_dump_output_path: "{{ output_path }}"
