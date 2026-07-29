@@ -1,7 +1,8 @@
 ---
 - name: all | Get the Tower/AAP instance version
   ansible.builtin.set_fact:
-    aap_version: "4.7.10"
+    aap_version: "{{ lookup(controller_api_plugin, 'ping', host=controller_hostname, oauth_token=controller_oauthtoken, verify_ssl=controller_validate_certs).version
+      }}"
 - name: all | Check if the connection is to an Ansible Tower or to Automation Platform
   ansible.builtin.set_fact:
     is_aap: "{{ aap_version is version('4.0.0', '>=') }}"
