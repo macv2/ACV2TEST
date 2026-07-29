@@ -23,17 +23,3 @@
     - name: Extract Token into a Fact
       ansible.builtin.set_fact:
         aap_token: "{{ token_response.json.token }}"
-
-    - name: Example API Call using Bearer Token
-      ansible.builtin.uri:
-        url: "https://aap.j445w.sandbox2989.opentlc.com/api/controller/v2/tokens/"
-        method: GET
-        headers:
-          Authorization: "Bearer {{ aap_token }}"
-        status_code: 200
-        validate_certs: false
-      register: templates_list
-
-    - name: Print templates
-      ansible.builtin.debug:
-        var: templates_list.json.results
