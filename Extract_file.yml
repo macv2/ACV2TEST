@@ -6,13 +6,3 @@
   tasks:
     - name: Generate a report inside the container
       ansible.builtin.shell: "echo 'Data' > /tmp/report.txt"
-
-    - name: Fetch file from the container back to the host machine
-      ansible.builtin.copy:
-        src: /tmp/report.txt
-        dest: /var/tmp/aap-export/
-        flat: yes
-      delegate_to: bastion.zpqkh.sandbox5380.opentlc.com
-      vars:
-        ansible_user: "lab-user"
-        ansible_password: "MjA1MTYzMDA1"
