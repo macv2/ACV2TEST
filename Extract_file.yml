@@ -5,10 +5,5 @@
   
   tasks:
     - name: Generate a report inside the container
-      ansible.builtin.shell: "echo 'Data' > /tmp/report.txt"
+      ansible.builtin.shell: "echo 'Data' > /tmp/aap_export/report.txt"
 
-    - name: Copy the entire directory recursively
-      ansible.builtin.copy:
-        src: /tmp/report.txt
-        dest: /var/tmp/aap_export/
-        mode: '0755'     
