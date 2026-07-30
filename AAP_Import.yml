@@ -12,8 +12,6 @@
     controller_oauthtoken: "sVLGxyZrv9kgjweZfXkmITqIqUA42P"
     valid_roles:
       - settings
-      - credentials
-      - credential_types
       - execution_environments
       - groups
       - hosts
