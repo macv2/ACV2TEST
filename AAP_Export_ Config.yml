@@ -7,7 +7,7 @@
     - ansible.controller
 
   vars:
-    controller_host: "aap.zpqkh.sandbox5380.opentlc.com"
+    controller_host: "https://aap.zpqkh.sandbox5380.opentlc.com"
     controller_username: "lab-user"
     controller_password: "MjA1MTYzMDA1"
     controller_validate_certs: false
