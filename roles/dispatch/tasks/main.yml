@@ -1,18 +1,18 @@
 ---
-- name: "Run the following infra.controller_configuration roles: {{ controller_configuration_dispatcher_roles | map(attribute='role') | join(', ') }}"
+- name: "Run the following infra.controller_configuration roles: {{ valid_roles | join(', ') }}"
   ansible.builtin.include_role:
-    name: "{{ __role.role }}"
+    name: "{{ role }}"
     apply:
-      tags: "{{ __role.tags }}"
-  #when: vars[__role.var] is defined
+      tags: "{{ role }}"
+  when: vars[valid_roles] is defined
   tags: always
-  loop: "{{ controller_configuration_dispatcher_roles }}"
+  loop: "{{ valid_roles }}"
   loop_control:
-    loop_var: __role
+    loop_var: role
   vars:
-    assign_galaxy_credentials_to_org: "{{ __role.assign_galaxy_credentials_to_org | default(false) }}"
-    assign_default_ee_to_org: "{{ __role.assign_default_ee_to_org | default(false) }}"
-    assign_notification_templates_to_org: "{{ __role.assign_notification_templates_to_org | default(false) }}"
+    assign_galaxy_credentials_to_org: "false"
+    assign_default_ee_to_org: "false"
+    assign_notification_templates_to_org: "false"
 
 - name: Display errors and fail
   when:
