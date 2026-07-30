@@ -17,7 +17,7 @@
       - execution_environments
       - groups
       - hosts
-      - inventory
+      - inventories
       - inventory_sources
       - job_templates
       - notification_templates
@@ -27,7 +27,6 @@
       - teams
       - users
       - workflow_job_templates
-      - workflow_job_template_nodes
       - instance_groups
       - applications
       - labels
