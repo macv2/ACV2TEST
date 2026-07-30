@@ -4,7 +4,7 @@
   #become: true
   vars:
     # Define the remote server IP address directly
-    ansible_host: "192.168.1.50"
+    ansible_host: "3.22.151.125"
     # Specify the SSH user for the remote system
     ansible_user: "lab-user"
   
