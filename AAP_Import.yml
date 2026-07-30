@@ -37,4 +37,5 @@
       include_role:
         name: dispatch
       vars:
+        controller_configuration_async_dir: "{{ input_path }}"
         controller_config_dir: "{{ input_path }}"
