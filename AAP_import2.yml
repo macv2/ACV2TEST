@@ -7,7 +7,7 @@
   pre_tasks:
     - name: Load exported configuration variables
       ansible.builtin.include_vars:
-        dir: "{{ playbook_dir }}/controller_configs"
+        dir: "/tmp/aap_export"
         extensions: ["yml", "yaml"]
 
   roles:
