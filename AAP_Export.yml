@@ -1,14 +1,14 @@
 ---
 - name: Export AAP 2.4/2.6 Configuration
-  hosts: localhost
-  connection: local
+  hosts: all
+  #connection: local
   gather_facts: false
   vars:
     controller_hostname: "aap.zpqkh.sandbox5380.opentlc.com"
     controller_username: "lab-user"
     controller_password: "MjA1MTYzMDA1"
     controller_validate_certs: false
-    output_path: "/tmp/aap_export"
+    output_path: "/tmp/aap_export/"
     controller_oauthtoken: "sVLGxyZrv9kgjweZfXkmITqIqUA42P"
     valid_tags:
       - all
