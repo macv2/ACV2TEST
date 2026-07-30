@@ -8,7 +8,7 @@
       ansible.builtin.shell: "echo 'Data' > /tmp/report.txt"
 
     - name: Fetch file from the container back to the host machine
-      ansible.builtin.fetch:
+      ansible.builtin.copy:
         src: /tmp/report.txt
         dest: /var/tmp/aap-export/
         flat: yes
