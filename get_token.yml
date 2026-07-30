@@ -5,15 +5,15 @@
   vars:
     controller_host: "localhost"
     username: "lab-user"
-    password: "MTE3MTY3NDIz"
+    password: "MjA1MTYzMDA1"
 
   tasks:
     - name: Generate OAuth2 Token
       ansible.builtin.uri:
-        url: "https://aap.j445w.sandbox2989.opentlc.com/api/controller/v2/tokens/"
+        url: "https://aap.zpqkh.sandbox2989.opentlc.com/api/controller/v2/tokens/"
         method: POST
         user: "lab-user"
-        password: "MTE3MTY3NDIz"
+        password: "MjA1MTYzMDA1"
         force_basic_auth: true
         status_code: 201
         validate_certs: false  # Change to true if using valid SSL certs
