@@ -4,7 +4,7 @@
   connection: local
   gather_facts: false
   vars:
-    controller_hostname: "aap.zpqkh.sandbox2989.opentlc.com"
+    controller_hostname: "aap.zpqkh.sandbox5380.opentlc.com"
     controller_username: "lab-user"
     controller_password: "MjA1MTYzMDA1"
     controller_validate_certs: false
