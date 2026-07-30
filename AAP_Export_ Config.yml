@@ -1,6 +1,6 @@
 ---
 - name: Export AAP Controller Configurations
-  hosts: localhost
+  hosts: aap.zpqkh.sandbox5380.opentlc.com
   connection: local
   gather_facts: false
   collections:
