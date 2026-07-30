@@ -46,3 +46,9 @@
       vars:
         file_dump_output_path: "{{ output_path }}"
         clean_assets: true
+
+    - name: Copy entire directory to remote server
+      ansible.builtin.copy:
+        src: "{{ output_path }}"
+        dest: /etc/export/
+        mode: '0755'    
