@@ -1,9 +1,0 @@
----
-- name: Extract generated file from EE container to the host
-  hosts: all
-  #become: true
-  
-  tasks:
-    - name: Generate a report inside the container
-      ansible.builtin.shell: "echo 'Data' > /tmp/aap_export/report.txt"
-
