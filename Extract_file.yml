@@ -1,0 +1,13 @@
+---
+- name: Extract generated file from EE container to the host
+  hosts: all
+  tasks:
+    - name: Generate a report inside the container
+      ansible.builtin.shell: "echo 'Data' > /tmp/report.txt"
+
+    - name: Fetch file from the container back to the host machine
+      ansible.builtin.fetch:
+        src: /tmp/report.txt
+        dest: /var/lib/awx/projects/reports/
+        flat: yes
+      delegate_to: automation_node_host
