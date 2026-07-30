@@ -10,7 +10,7 @@
   tasks:
     - name: Generate OAuth2 Token
       ansible.builtin.uri:
-        url: "https://aap.zpqkh.sandbox2989.opentlc.com/api/controller/v2/tokens/"
+        url: "https://aap.zpqkh.sandbox5380.opentlc.com/api/controller/v2/tokens/"
         method: POST
         user: "lab-user"
         password: "MjA1MTYzMDA1"
