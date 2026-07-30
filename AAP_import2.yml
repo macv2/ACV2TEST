@@ -1,0 +1,14 @@
+---
+- name: Import Configuration to AAP 2.6
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  pre_tasks:
+    - name: Load exported configuration variables
+      ansible.builtin.include_vars:
+        dir: "{{ playbook_dir }}/controller_configs"
+        extensions: ["yml", "yaml"]
+
+  roles:
+    - role: infra.controller_configuration.dispatch
