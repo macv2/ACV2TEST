@@ -4,7 +4,7 @@
     name: "{{ role }}"
     apply:
       tags: "{{ role }}"
-  when: vars[valid_roles] is defined
+  #when: vars[valid_roles] is defined
   tags: always
   loop: "{{ valid_roles }}"
   loop_control:
