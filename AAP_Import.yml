@@ -9,7 +9,7 @@
     controller_password: "MjA1MTYzMDA1"
     controller_validate_certs: false
     input_path: "/tmp/aap_export"
-    controller_oauthtoken: "nsf6kcM4A6ojmXkL3hA7R4A3t5DAQL"    
+    controller_oauthtoken: "sVLGxyZrv9kgjweZfXkmITqIqUA42P"    
 
   tasks:
     - name: Import configuration assets
