@@ -8,7 +8,7 @@
     controller_username: "lab-user"
     controller_password: "MjA1MTYzMDA1"
     controller_validate_certs: false
-    input_path: "{{ playbook_dir }}/controller_configs"
+    input_path: "/tmp/aap_export"
     controller_oauthtoken: "sVLGxyZrv9kgjweZfXkmITqIqUA42P"
     valid_roles:
       - settings
