@@ -1,0 +1,24 @@
+---
+- name: Export AAP Controller Configurations
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  collections:
+    - ansible.controller
+
+  vars:
+    controller_host: "aap.zpqkh.sandbox5380.opentlc.com"
+    controller_username: "lab-user"
+    controller_password: "MjA1MTYzMDA1"
+    controller_validate_certs: false
+
+ tasks:
+    - name: Export all objects from Controller
+      ansible.controller.export:
+        all: true
+      register: export_results
+
+    - name: Save export to a YAML file
+      ansible.builtin.copy:
+        content: "{{ export_results | to_nice_yaml(width=50, explicit_start=true, explicit_end=true) }}"
+        dest: "/path/to/backup/aap_config.yaml"
