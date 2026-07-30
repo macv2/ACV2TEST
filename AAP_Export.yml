@@ -9,7 +9,7 @@
     controller_password: "MjA1MTYzMDA1"
     controller_validate_certs: false
     #output_path: "/tmp/aap_export"
-    output_path: "/usr/share/pki/tmp/aap_export"
+    output_path: "/tmp/aap_export"
     controller_oauthtoken: "sVLGxyZrv9kgjweZfXkmITqIqUA42P"
     valid_tags:
       - all
