@@ -4,9 +4,9 @@
   connection: local
   gather_facts: false
   vars:
-    controller_hostname: "aap.j445w.sandbox2989.opentlc.com"
+    controller_hostname: "aap.zpqkh.sandbox2989.opentlc.com"
     controller_username: "lab-user"
-    controller_password: "MTE3MTY3NDIz"
+    controller_password: "MjA1MTYzMDA1"
     controller_validate_certs: false
     output_path: "/tmp/aap_export"
     controller_oauthtoken: "nsf6kcM4A6ojmXkL3hA7R4A3t5DAQL"
