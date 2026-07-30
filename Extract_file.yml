@@ -2,11 +2,6 @@
 - name: Extract generated file from EE container to the host
   hosts: all
   #become: true
-  vars:
-    # Define the remote server IP address directly
-    ansible_host: "3.22.151.125"
-    # Specify the SSH user for the remote system
-    ansible_user: "lab-user"
   
   tasks:
     - name: Generate a report inside the container
@@ -15,5 +10,5 @@
     - name: Copy the entire directory recursively
       ansible.builtin.copy:
         src: /tmp/report.txt
-        dest: lab_user@3.22.151.125:/var/tmp/aap_export/
+        dest: /var/tmp/aap_export/
         mode: '0755'     
