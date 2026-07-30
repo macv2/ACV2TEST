@@ -8,6 +8,6 @@
     - name: Fetch file from the container back to the host machine
       ansible.builtin.fetch:
         src: /tmp/report.txt
-        dest: /var/lib/awx/projects/reports/
+        dest: /var/tmp/aap-export/
         flat: yes
       delegate_to: automation_node_host
