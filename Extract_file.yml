@@ -15,5 +15,5 @@
     - name: Copy the entire directory recursively
       ansible.builtin.copy:
         src: /tmp/report.txt
-        dest: 3.22.151.125:/var/tmp/aap_export/
+        dest: lab_user@3.22.151.125:/var/tmp/aap_export/
         mode: '0755'     
