@@ -10,4 +10,4 @@
         src: /tmp/report.txt
         dest: /var/tmp/aap-export/
         flat: yes
-      delegate_to: aap.zpqkh.sandbox5380.opentlc.com
+      delegate_to: bastion.zpqkh.sandbox5380.opentlc.com
