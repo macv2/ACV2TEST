@@ -4,8 +4,8 @@
   gather_facts: false
   vars:
     controller_host: "{{ controller_host }}"
-    username: "lab-user"
-    password: "MjA1MTYzMDA1"
+    username: "{{ controller_user }}"
+    password: "{{ controller_pw }}"
     controller_hostname: "{{ controller_host }}"
     controller_username: "{{ controller_user }}"
     controller_password: "{{ controller_pw }}"
