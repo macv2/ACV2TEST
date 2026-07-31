@@ -1,5 +1,5 @@
 ---
-- name: Export AAP Controller Configuration
+- name: Import AAP Controller Configuration
   hosts: all
   gather_facts: false
   vars:
@@ -24,3 +24,9 @@
       ansible.builtin.set_fact:
         controller_oauthtoken: "{{ token_response.json.token }}"
 
+    - name: Import configuration assets
+      include_role:
+        name: dispatch
+      vars:
+        controller_configuration_async_dir: "{{ input_path }}"
+        controller_config_dir: "{{ input_path }}"
