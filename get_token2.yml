@@ -2,6 +2,11 @@
 - name: Export AAP Controller Configuration
   hosts: all
   gather_facts: false
+  vars:
+    username: "{{ controller_user }}"
+    password: "{{ controller_pw }}"
+    controller_username: "{{ controller_user }}"
+    controller_password: "{{ controller_pw }}"    
    
   tasks:
     - name: Generate OAuth2 Token
