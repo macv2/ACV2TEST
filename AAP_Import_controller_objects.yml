@@ -26,7 +26,7 @@
 
     - name: Load structured variables from the file tree
       ansible.builtin.include_role:
-        name: infra.controller_configuration.filetree_read
+        name: filetree_read
 
     - name: Dispatch and apply variables into AAP Controller
       include_role:
