@@ -1,15 +1,16 @@
 ---
-- name: Export AAP 2.4/2.6 Configuration
+- name: Export AAP Controller Configuration
   hosts: all
-  #connection: local
   gather_facts: false
   vars:
-    controller_hostname: "aap.zpqkh.sandbox5380.opentlc.com"
-    controller_username: "lab-user"
-    controller_password: "MjA1MTYzMDA1"
+    controller_host: "{{ controller_host }}"
+    username: "lab-user"
+    password: "MjA1MTYzMDA1"
+    controller_hostname: "{{ controller_host }}"
+    controller_username: "{{ controller_user }}"
+    controller_password: "{{ controller_pw }}"
     controller_validate_certs: false
     output_path: "/tmp/aap_export/"
-    controller_oauthtoken: "sVLGxyZrv9kgjweZfXkmITqIqUA42P"
     valid_tags:
       - all
       - settings
@@ -33,8 +34,24 @@
       - applications
       - labels
       - schedules
-
+   
   tasks:
+    - name: Generate OAuth2 Token
+      ansible.builtin.uri:
+        url: "https://{{ controller_host }}/api/controller/v2/tokens/"
+        method: POST
+        user: "{{ controller_user }}
+        password: "{{ controller_pw }}"
+        force_basic_auth: true
+        status_code: 201
+        validate_certs: false  # Change to true if using valid SSL certs
+      register: token_response
+      #no_log: true  # Prevents credentials and tokens from leaking in logs
+
+    - name: Extract Token into a Fact
+      ansible.builtin.set_fact:
+        controller_oauthtoken: "{{ token_response.json.token }}"
+
     - name: Create output directory
       file:
         path: "{{ output_path }}"
