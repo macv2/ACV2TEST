@@ -2,38 +2,6 @@
 - name: Export AAP Controller Configuration
   hosts: all
   gather_facts: false
-  vars:
-    controller_host: "{{ controller_host }}"
-    username: "{{ controller_user }}"
-    password: "{{ controller_pw }}"
-    controller_hostname: "{{ controller_host }}"
-    controller_username: "{{ controller_user }}"
-    controller_password: "{{ controller_pw }}"
-    controller_validate_certs: false
-    output_path: "/tmp/aap_export/"
-    valid_tags:
-      - all
-      - settings
-      - credentials
-      - credential_types
-      - execution_environments
-      - groups
-      - hosts
-      - inventory
-      - inventory_sources
-      - job_templates
-      - notification_templates
-      - organizations
-      - projects
-      - roles
-      - teams
-      - users
-      - workflow_job_templates
-      - workflow_job_template_nodes
-      - instance_groups
-      - applications
-      - labels
-      - schedules
    
   tasks:
     - name: Generate OAuth2 Token
