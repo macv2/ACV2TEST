@@ -3,6 +3,7 @@
   hosts: all
   gather_facts: false
   vars:
+    controller_validate_certs: false
     username: "{{ controller_user }}"
     password: "{{ controller_pw }}"
     controller_username: "{{ controller_user }}"
