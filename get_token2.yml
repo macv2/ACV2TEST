@@ -12,7 +12,7 @@
   tasks:
     - name: Generate OAuth2 Token
       ansible.builtin.uri:
-        url: "https://{{ controller_host }}/api/controller/v2/tokens/"
+        url: "https://{{ controller_hostname }}/api/controller/v2/tokens/"
         method: POST
         user: "{{ controller_user }}
         password: "{{ controller_pw }}"
