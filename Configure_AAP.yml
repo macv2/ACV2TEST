@@ -16,6 +16,10 @@
   tasks:
     - name: Create a new Job Template
       ansible.controller.job_template:
+        controller_host: "{{ controller_host }}"
+        controller_username: "{{ controller_user }}"
+        controller_password: "{{ controller_pw }}"
+        validate_certs: false      
         name: "job Importado"
         description: "job Importado"
         job_type: "run"
@@ -26,16 +30,17 @@
           - "Bastion"
         execution_environment: "Control Plane Execution Environment"
         state: present
+
+
+    - name: Create a new Job Template
+      ansible.controller.job_template:
         controller_host: "{{ controller_host }}"
         controller_username: "{{ controller_user }}"
         controller_password: "{{ controller_pw }}"
-        validate_certs: false
-
-    - name: Create a new Job Template
-      ansible.controller.job_template:        
+        validate_certs: false      
         name: "AAP_Exportar2"
         description: ""
-        #organization: "Default"
+        organization: "Default"
         project: "ACV2TEST"
         inventory: "Bastion"
         playbook: "AAP_export_controller_objects.yml"
@@ -121,7 +126,7 @@
         skip_tags: ""
         start_at_task: ""
         timeout: 0
-        #execution_environment: "Control Plane Execution Environment"
+        execution_environment: "Control Plane Execution Environment"
         host_config_key: ""
         survey_enabled: false
         become_enabled: false
