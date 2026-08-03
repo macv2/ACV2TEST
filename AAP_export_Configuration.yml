@@ -10,7 +10,6 @@
 
   vars:
     # Target server connection details
-    controller_api_base_path: "/api/controller/v2"
     controller_username: "{{ controller_user }}"
     controller_password: "{{ controller_pw }}" 
     controller_validate_certs: false
