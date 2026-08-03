@@ -5,6 +5,8 @@
   gather_facts: false
   collections:
     - ansible.controller
+    - infra.aap_configuration
+
   vars:
     # Target server connection details
     controller_username: "{{ controller_user }}"
