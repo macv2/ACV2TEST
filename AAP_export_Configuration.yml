@@ -24,10 +24,10 @@
         controller_username: "lab-user"
         controller_password: "NDE3NjA1OTcy"
         validate_certs: false
-        projects: all
+        all: true
         job_templates: all
       environment:
-        AWXKIT_API_BASE_PATH: "/api/controller/"  
+        AWXKIT_API_BASE_PATH: '/api/controller/'  
       register: export_results
 
     - name: Save exported objects to a YAML file
