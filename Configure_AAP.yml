@@ -35,7 +35,7 @@
       ansible.controller.job_template:        
         name: "AAP_Exportar2"
         description: ""
-        organization: "Default"
+        #organization: "Default"
         project: "ACV2TEST"
         inventory: "Bastion"
         playbook: "AAP_export_controller_objects.yml"
