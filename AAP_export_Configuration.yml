@@ -16,12 +16,12 @@
     controller_validate_certs: false
 
   tasks:
-    - name: Export all projects
+    - name: Export all
       ansible.controller.export:
         all: true
       register: export_results
 
     - name: Save exported objects to a YAML file
-      ansible.builtin.copy:
+      copy:
         content: "{{ export_results | to_nice_yaml(explicit_start=true, explicit_end=true) }}"
         dest: "/tmp/exported_projects.yaml"
