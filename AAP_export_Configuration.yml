@@ -1,6 +1,6 @@
 ---
 - name: Export Configuration from AAP
-  hosts: localhost
+  hosts: all
   #connection: local
   gather_facts: false
   environment:
