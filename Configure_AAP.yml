@@ -24,7 +24,7 @@
         playbook: "AAP_export_Configuration.yml"
         credentials:
           - "Bastion"
-        execution_environment: "Default Execution Environment"
+        execution_environment: "Control Plane Execution Environment"
         state: present
         controller_host: "{{ controller_host }}"
         controller_username: "{{ controller_user }}"
