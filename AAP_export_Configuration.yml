@@ -1,0 +1,23 @@
+---
+- name: Export Configuration from AAP
+  hosts: all
+  #connection: local
+  gather_facts: false
+  collections:
+    - ansible.controller
+  vars:
+    # Target server connection details
+    controller_username: "{{ controller_user }}"
+    controller_password: "{{ controller_pw }}" 
+    controller_validate_certs: false
+
+  tasks:
+    - name: Export all projects
+      ansible.controller.export:
+        projects: all
+      register: export_results
+
+    - name: Save exported objects to a YAML file
+      ansible.builtin.copy:
+        content: "{{ export_results | to_nice_yaml(explicit_start=true, explicit_end=true) }}"
+        dest: "/tmp/exported_projects.yaml"
