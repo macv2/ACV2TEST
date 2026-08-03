@@ -5,11 +5,8 @@
   gather_facts: false
   collections:
     - ansible.platform
-      version: ">=2.6.0"
     - ansible.controller
-      version: ">=4.7.0"
     - infra.aap_configuration
-      version: ">=4.7.0"
 
   vars:
     # Target server connection details
