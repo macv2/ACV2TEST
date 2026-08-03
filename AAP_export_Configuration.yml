@@ -14,7 +14,7 @@
   tasks:
     - name: Export all projects
       ansible.controller.export:
-        projects: all
+        job_templates: "all"
       register: export_results
 
     - name: Save exported objects to a YAML file
