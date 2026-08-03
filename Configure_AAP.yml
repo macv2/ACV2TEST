@@ -1,0 +1,31 @@
+---
+- name: Configure Ansible Controller
+  hosts: all
+  #connection: local
+  gather_facts: false
+    - ansible.controller
+    - infra.aap_configuration
+
+  vars:
+    # Target server connection details
+    controller_username: "{{ controller_user }}"
+    controller_password: "{{ controller_pw }}" 
+    controller_validate_certs: false
+
+  tasks:
+    - name: Create a new Job Template
+      ansible.controller.job_template:
+        name: "Deploy Web Servers"
+        description: "Deploys Apache and configures virtual hosts"
+        job_type: "run"
+        inventory: "Bastion"
+        project: "ACV2TEST"
+        playbook: "AAP_export_Configuration.yml"
+        credentials:
+          - "Bastion"
+        execution_environment: "Default Execution Environment"
+        state: present
+        controller_host: "{{ controller_host }}"
+        controller_username: "{{ controller_user }}"
+        controller_password: "{{ controller_pw }}"
+        validate_certs: false
