@@ -24,7 +24,6 @@
         controller_username: "lab-user"
         controller_password: "NDE3NjA1OTcy"
         validate_certs: false
-        organizations: all
         projects: all
         job_templates: all
       register: export_results
