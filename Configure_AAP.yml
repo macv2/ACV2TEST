@@ -15,8 +15,8 @@
   tasks:
     - name: Create a new Job Template
       ansible.controller.job_template:
-        name: "Deploy Web Servers"
-        description: "Deploys Apache and configures virtual hosts"
+        name: "job Importado"
+        description: "job Importado"
         job_type: "run"
         inventory: "Bastion"
         project: "ACV2TEST"
