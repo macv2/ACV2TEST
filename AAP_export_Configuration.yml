@@ -1,7 +1,7 @@
 ---
 - name: Export Configuration from AAP
   hosts: localhost
-  connection: local
+  #connection: local
   gather_facts: false
   collections:
     - ansible.platform
