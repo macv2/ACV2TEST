@@ -5,7 +5,7 @@
   gather_facts: false
   environment:
     #controller_api_base_path: "/api/controller/v2/"
-    AWXKIT_API_BASE_PATH: "/api/controller/"
+    AWXKIT_API_BASE_PATH: "/api/controller/v2/"
   collections:
     - ansible.platform
     - ansible.controller
