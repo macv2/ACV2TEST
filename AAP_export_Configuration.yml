@@ -4,8 +4,12 @@
   connection: local
   gather_facts: false
   collections:
-    - ansible.controller
-    - infra.aap_configuration
+    - name: ansible.platform
+      version: ">=2.6.0"
+    - name: ansible.controller
+      version: ">=4.7.0"
+    - name: infra.aap_configuration
+      version: ">=4.7.0"
 
   vars:
     # Target server connection details
