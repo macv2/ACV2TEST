@@ -4,8 +4,8 @@
   #connection: local
   gather_facts: false
   environment:
-    controller_api_base_path: "/api/controller/v2/"
-    #AWXKIT_API_BASE_PATH: "/api/controller/v2/"
+    #controller_api_base_path: "/api/controller/v2/"
+    AWXKIT_API_BASE_PATH: "/api/controller/"
   collections:
     - ansible.platform
     - ansible.controller
@@ -26,6 +26,8 @@
         validate_certs: false
         projects: all
         job_templates: all
+      environment:
+        AWXKIT_API_BASE_PATH: "/api/controller/"  
       register: export_results
 
     - name: Save exported objects to a YAML file
