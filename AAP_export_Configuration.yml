@@ -17,7 +17,11 @@
   tasks:
     - name: Export all
       ansible.controller.export:
-        all: true
+        controller_host: "aap.bnzvd.sandbox5552.opentlc.com"
+        validate_certs: false
+        organizations: all
+        projects: all
+        job_templates: all
       register: export_results
 
     - name: Save exported objects to a YAML file
