@@ -1,11 +1,11 @@
 ---
 controller_templates:
-  - name: "Demo Job Template"
+  - name: "Demo Job Template2"
     description: ""
     organization: "Default"
     project: "Demo Project"
     inventory: "Demo Inventory"
-    playbook: "hello_world.yml"
+    playbook: "hello_world2.yml"
     scm_branch: ""
     forks: 0
     limit: ""
@@ -44,12 +44,12 @@ controller_templates:
     webhook_service: ""
     prevent_instance_group_fallback: false
 
-  - name: "AAP_Export"
+  - name: "AAP_Export2"
     description: ""
     organization: "Default"
     project: "ACV2TEST"
     inventory: "Bastion"
-    playbook: "AAP_export_controller_objects.yml"
+    playbook: "AAP_export_controller_objects2.yml"
     scm_branch: ""
     forks: 0
     limit: ""
