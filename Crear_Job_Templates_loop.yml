@@ -73,4 +73,4 @@
       loop: "{{ controller_templates }}"
       loop_control:
         loop_var: __controller_template_item
-        label: "Importando Job Template: {{ __controller_template_item.name }}"
+        label: "Importando: {{ __controller_template_item.name }}"
