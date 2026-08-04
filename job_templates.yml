@@ -44,8 +44,6 @@ controller_templates:
     webhook_service: ""
     prevent_instance_group_fallback: false
 
-
-controller_templates:
   - name: "AAP_Export"
     description: ""
     organization: "Default"
