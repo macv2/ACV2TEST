@@ -45,5 +45,5 @@
 
       loop: "{{ controller_projects }}"
       loop_control:
-        loop_var: __controller_template_item
+        loop_var: __controller_project_item
         label: "Importando: {{ __controller_project_item.name }}"
