@@ -3,8 +3,8 @@
   hosts: all
   #connection: local
   gather_facts: false
-  collections:
-    - ansible.controller
+  #collections:
+    #- ansible.controller
     #- infra.aap_configuration
 
   tasks:
