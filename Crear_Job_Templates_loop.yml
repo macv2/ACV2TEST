@@ -6,6 +6,10 @@
   tasks:
     - name: Managing Controller Job Templates
       ansible.controller.job_template:
+        controller_host: "{{ controller_host }}"
+        controller_username: "{{ controller_user }}"
+        controller_password: "{{ controller_pw }}"
+        validate_certs: false
         name: "{{ __controller_template_item.name | mandatory }}"
         new_name: "{{ __controller_template_item.new_name | default(omit, true) }}"
         copy_from: "{{ __controller_template_item.copy_from | default(omit, true) }}"
