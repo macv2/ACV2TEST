@@ -1,14 +1,14 @@
 ---
 controller_execution_environments:
-  - name: "Hub Minimal execution environment"
+  - name: "Hub Minimal ambiente de ejecucion2"
     description: ""
     image: "controller.example.com:8501/ee-minimal-rhel8:latest"
     pull: ""
-  - name: "Hub Default execution environment"
+  - name: "Hub Default ambiente de ejecucion2"
     description: ""
     image: "controller.example.com:8501/ee-supported-rhel8:latest"
     pull: ""
-  - name: "Minimal execution environment"
+  - name: "Minimal ambiente de ejecucion2"
     description: ""
     image: "registry.redhat.io/ansible-automation-platform-25/ee-minimal-rhel8:latest"
     pull: ""
