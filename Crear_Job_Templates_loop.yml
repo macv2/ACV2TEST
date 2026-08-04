@@ -2,6 +2,8 @@
 - name: Crear nuevos Job_Templates en el AAP Controller
   hosts: all
   gather_facts: false
+  vars_files:
+    - job_templates.yml
 
   tasks:
     - name: Managing Controller Job Templates
