@@ -8,7 +8,7 @@
     job_templates.yml
 
   tasks:
-    - name: Managing Controller Job Templates
+    - name: Crear nuevo Job Template "{{ __controller_template_item.name }}"
       ansible.controller.job_template:
         controller_host: "{{ controller_host }}"
         controller_username: "{{ controller_user }}"
