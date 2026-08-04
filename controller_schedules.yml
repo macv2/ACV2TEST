@@ -1,6 +1,6 @@
 ---
 controller_schedules:
-  - name: "Cleanup Job Schedule"
+  - name: "Cleanup Job Schedule2"
     description: "Automatically Generated Schedule"
     enabled: true
     unified_job_template: "Cleanup Job Details"
@@ -21,7 +21,7 @@ controller_schedules:
     verbosity: 0
 
 
-  - name: "Cleanup Activity Schedule"
+  - name: "Cleanup Activity Schedule2"
     description: "Automatically Generated Schedule"
     enabled: true
     unified_job_template: "Cleanup Activity Stream"
@@ -42,7 +42,7 @@ controller_schedules:
     verbosity: 0
 
 
-  - name: "Cleanup Expired Sessions"
+  - name: "Cleanup Expired Sessions2"
     description: "Cleans out expired browser sessions"
     enabled: true
     unified_job_template: "Cleanup Expired Sessions"
