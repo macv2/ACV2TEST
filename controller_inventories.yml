@@ -1,12 +1,12 @@
 ---
 controller_inventories:
-  - name: "Demo Inventory"
+  - name: "Demo Inventory ACV2"
     description: ""
     organization: "Default"
     host_filter: ""
     prevent_instance_group_fallback: False
 
-  - name: "Bastion"
+  - name: "Bastion ACV2"
     description: ""
     organization: "Default"
     host_filter: ""
