@@ -4,122 +4,64 @@
   gather_facts: false
 
   tasks:
-    - name: Crear nuevo Job Template
+    - name: Managing Controller Job Templates
       ansible.controller.job_template:
-        controller_host: "{{ controller_host }}"
-        controller_username: "{{ controller_user }}"
-        controller_password: "{{ controller_pw }}"
-        validate_certs: false
-        name: "job Importado"
-        description: "job Importado"
-        job_type: "run"
-        inventory: "Bastion"
-        project: "ACV2TEST"
-        playbook: "AAP_export_Configuration.yml"
-        credentials:
-          - "Bastion"
-        execution_environment: "Control Plane Execution Environment"
-        state: present
+        name: "{{ __controller_template_item.name | mandatory }}"
+        new_name: "{{ __controller_template_item.new_name | default(omit, true) }}"
+        copy_from: "{{ __controller_template_item.copy_from | default(omit, true) }}"
+        description: "{{ __controller_template_item.description | default(('' if controller_configuration_job_templates_enforce_defaults else omit), true) }}"
+        execution_environment: "{{ __controller_template_item.execution_environment.name | default(__controller_template_item.execution_environment | default(omit, true)) }}"
+        custom_virtualenv: "{{ __controller_template_item.custom_virtualenv | default(('' if controller_configuration_job_templates_enforce_defaults else omit), true) }}"
+        job_type: "{{ __controller_template_item.job_type | default('run') }}"
+        inventory: "{{ __controller_template_item.inventory.name | default(__controller_template_item.inventory | default(omit, true)) }}"
+        organization: "{{ __controller_template_item.organization.name | default(__controller_template_item.organization | default(('' if controller_configuration_job_templates_enforce_defaults else omit), true)) }}"
+        project: "{{ __controller_template_item.project.name | default(__controller_template_item.project | default(omit, true)) }}"
+        playbook: "{{ __controller_template_item.playbook | default(omit, true) }}"
+        credentials: "{{ __controller_template_item.credentials | default(__controller_template_item.related.credentials | default([]) | map(attribute='name') | list) | default(omit, true) }}"
+        forks: "{{ __controller_template_item.forks | default(0, true) if __controller_template_item.forks is defined or controller_configuration_job_templates_enforce_defaults else omit }}"
+        limit: "{{ __controller_template_item.limit | default(('' if controller_configuration_job_templates_enforce_defaults else omit), false) }}"
+        verbosity: "{{ __controller_template_item.verbosity | default(0, true) if __controller_template_item.verbosity is defined or controller_configuration_job_templates_enforce_defaults else omit }}"
+        extra_vars: "{{ __controller_template_item.extra_vars | default(({} if controller_configuration_job_templates_enforce_defaults else omit), true) }}"
+        job_tags: "{{ __controller_template_item.job_tags | default(('' if controller_configuration_job_templates_enforce_defaults else omit), true) }}"
+        force_handlers: "{{ __controller_template_item.force_handlers | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        skip_tags: "{{ __controller_template_item.skip_tags | default(('' if controller_configuration_job_templates_enforce_defaults else omit), true) }}"
+        start_at_task: "{{ __controller_template_item.start_at_task | default(('' if controller_configuration_job_templates_enforce_defaults else omit), true) }}"
+        diff_mode: "{{ __controller_template_item.diff_mode | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        use_fact_cache: "{{ __controller_template_item.use_fact_cache | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        host_config_key: "{{ __controller_template_item.host_config_key | default(('' if controller_configuration_job_templates_enforce_defaults else omit), true) }}"
+        ask_scm_branch_on_launch: "{{ __controller_template_item.ask_scm_branch_on_launch | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        ask_diff_mode_on_launch: "{{ __controller_template_item.ask_diff_mode_on_launch | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        ask_variables_on_launch: "{{ __controller_template_item.ask_variables_on_launch | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        ask_limit_on_launch: "{{ __controller_template_item.ask_limit_on_launch | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        ask_tags_on_launch: "{{ __controller_template_item.ask_tags | default(__controller_template_item.ask_tags_on_launch | default((false if controller_configuration_job_templates_enforce_defaults else omit))) }}"
+        ask_skip_tags_on_launch: "{{ __controller_template_item.ask_skip_tags | default(__controller_template_item.ask_skip_tags_on_launch | default((false if controller_configuration_job_templates_enforce_defaults else omit))) }}"
+        ask_job_type_on_launch: "{{ __controller_template_item.ask_job_type_on_launch | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        ask_verbosity_on_launch: "{{ __controller_template_item.ask_verbosity_on_launch | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        ask_inventory_on_launch: "{{ __controller_template_item.ask_inventory_on_launch | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        ask_credential_on_launch: "{{ __controller_template_item.ask_credential_on_launch | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        ask_execution_environment_on_launch: "{{ __controller_template_item.ask_execution_environment_on_launch | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        ask_forks_on_launch: "{{ __controller_template_item.ask_forks_on_launch | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        ask_instance_groups_on_launch: "{{ __controller_template_item.ask_instance_groups_on_launch | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        ask_job_slice_count_on_launch: "{{ __controller_template_item.ask_job_slice_count_on_launch | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        ask_labels_on_launch: "{{ __controller_template_item.ask_labels_on_launch | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        ask_timeout_on_launch: "{{ __controller_template_item.ask_timeout_on_launch | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        prevent_instance_group_fallback: "{{ __controller_template_item.prevent_instance_group_fallback | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        survey_enabled: "{{ __controller_template_item.survey_enabled | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        survey_spec: "{{ __controller_template_item.related.survey_spec | default(__controller_template_item.survey_spec | default(__controller_template_item.survey | default(({} if controller_configuration_job_templates_enforce_defaults else omit), true))) }}"
+        become_enabled: "{{ __controller_template_item.become_enabled | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        allow_simultaneous: "{{ __controller_template_item.allow_simultaneous | default((false if controller_configuration_job_templates_enforce_defaults else omit)) }}"
+        timeout: "{{ __controller_template_item.timeout | default(0, true) if __controller_template_item.timeout is defined or controller_configuration_job_templates_enforce_defaults else omit }}"
+        instance_groups: "{{ __controller_template_item.instance_groups | default(([] if controller_configuration_job_templates_enforce_defaults else omit), true) }}"
+        job_slice_count: "{{ __controller_template_item.job_slice_count | default((1 if controller_configuration_job_templates_enforce_defaults else omit), true) }}"
+        webhook_service: "{{ __controller_template_item.webhook_service | default(('' if controller_configuration_job_templates_enforce_defaults else omit), true) }}"
+        webhook_credential: "{{ __controller_template_item.webhook_credential | default(omit, true) }}"
+        scm_branch: "{{ __controller_template_item.scm_branch | default(('' if controller_configuration_job_templates_enforce_defaults else omit), true) }}"
+        labels: "{{ __controller_template_item.labels | default((__controller_template_item.related.labels | map(attribute='name') | list if __controller_template_item.related.labels is defined)) | default(([] if controller_configuration_job_templates_enforce_defaults else omit), true) }}"
+        state: "{{ __controller_template_item.state | default(platform_state | default('present')) }}"
+        notification_templates_started: "{{ __controller_template_item.notification_templates_started | default((__controller_template_item.related.notification_templates_started | map(attribute='name') | list if __controller_template_item.related.notification_templates_started is defined)) | default(([] if controller_configuration_job_templates_enforce_defaults else omit), true) }}"
+        notification_templates_success: "{{ __controller_template_item.notification_templates_success | default((__controller_template_item.related.notification_templates_success | map(attribute='name') | list if __controller_template_item.related.notification_templates_success is defined)) | default(([] if controller_configuration_job_templates_enforce_defaults else omit), true) }}"
+        notification_templates_error: "{{ __controller_template_item.notification_templates_error | default((__controller_template_item.related.notification_templates_error | map(attribute='name') | list if __controller_template_item.related.notification_templates_error is defined)) | default(([] if controller_configuration_job_templates_enforce_defaults else omit), true) }}"
 
-
-    - name: Create a new Job Template
-      ansible.controller.job_template:
-        controller_host: "{{ controller_host }}"
-        controller_username: "{{ controller_user }}"
-        controller_password: "{{ controller_pw }}"
-        validate_certs: false
-        name: "AAP_Exportar2"
-        description: ""
-        organization: "Default"
-        project: "ACV2TEST"
-        inventory: "Bastion"
-        playbook: "AAP_export_controller_objects.yml"
-        scm_branch: ""
-        forks: 0
-        limit: ""
-        verbosity: 0
-        job_type: "run"
-        job_slice_count: 1
-        use_fact_cache: false
-        credentials:
-          - "Bastion"
-        allow_simultaneous: false
-        ask_scm_branch_on_launch: false
-        ask_diff_mode_on_launch: false
-        ask_tags_on_launch: false
-        ask_skip_tags_on_launch: false
-        ask_job_type_on_launch: false
-        ask_verbosity_on_launch: false
-        ask_variables_on_launch: false
-        ask_inventory_on_launch: false
-        ask_limit_on_launch: false
-        ask_credential_on_launch: false
-        ask_execution_environment_on_launch: false
-        ask_labels_on_launch: false
-        ask_forks_on_launch: false
-        ask_job_slice_count_on_launch: false
-        ask_timeout_on_launch: false
-        ask_instance_groups_on_launch: false
-        extra_vars:
-          controller_user: lab-user
-          controller_pw: NDE3NjA1OTcy
-          controller_hostname: aap.bnzvd.sandbox5552.opentlc.com
-          output_path: /tmp/aap_export
-          input_path: /tmp/aap_export
-          dir_orgs_vars: ./tmp/controller_backup
-          valid_tags:
-            - all
-            - settings
-            - credentials
-            - credential_types
-            - execution_environments
-            - groups
-            - hosts
-            - inventory
-            - inventory_sources
-            - job_templates
-            - notification_templates
-            - organizations
-            - projects
-            - roles
-            - teams
-            - users
-            - workflow_job_templates
-            - workflow_job_template_nodes
-            - instance_groups
-            - applications
-            - labels
-            - schedules
-          valid_roles:
-            - settings
-            - credentials
-            - credential_types
-            - execution_environments
-            - groups
-            - hosts
-            - inventories
-            - inventory_sources
-            - job_templates
-            - notification_templates
-            - organizations
-            - projects
-            - roles
-            - teams
-            - users
-            - workflow_job_templates
-            - instance_groups
-            - applications
-            - labels
-            - schedules
-        job_tags: ""
-        force_handlers: false
-        skip_tags: ""
-        start_at_task: ""
-        timeout: 0
-        execution_environment: "Control Plane Execution Environment"
-        host_config_key: ""
-        survey_enabled: false
-        become_enabled: false
-        diff_mode: false
-        webhook_service: ""
-        prevent_instance_group_fallback: false        
+      loop: "{{ controller_templates }}"
+      loop_control:
+        loop_var: __controller_template_item           
