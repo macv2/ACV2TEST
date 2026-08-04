@@ -5,7 +5,7 @@
   vars:
     controller_configuration_inventories_enforce_defaults: false
   vars_files:
-    inventories.yml
+    controller_inventories.yml
 
   tasks:
     - name: Importar inventarios
