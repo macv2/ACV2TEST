@@ -5,7 +5,7 @@ controller_templates:
     organization: "Default"
     project: "Demo Project"
     inventory: "Demo Inventory"
-    playbook: "hello_world2.yml"
+    playbook: "hello_world.yml"
     scm_branch: ""
     forks: 0
     limit: ""
@@ -49,7 +49,7 @@ controller_templates:
     organization: "Default"
     project: "ACV2TEST"
     inventory: "Bastion"
-    playbook: "AAP_export_controller_objects2.yml"
+    playbook: "AAP_export_controller_objects.yml"
     scm_branch: ""
     forks: 0
     limit: ""
