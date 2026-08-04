@@ -1,0 +1,19 @@
+---
+controller_user_accounts:
+  - username: "administrador"
+    password: "INITIAL"
+    email: "admin2@example.com"
+    first_name: ""
+    last_name: ""
+    auditor: "False"
+    superuser: "True"
+    update_secrets: false
+
+  - username: "lab-user2"
+    password: "INITIAL"
+    email: "lab-user@redhat.com"
+    first_name: "lab"
+    last_name: "User2"
+    auditor: "False"
+    superuser: "True"
+    update_secrets: false
