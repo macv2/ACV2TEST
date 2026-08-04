@@ -1,0 +1,29 @@
+---
+- name: Importar hosts al AAP Controller
+  hosts: all
+  gather_facts: false
+  vars:
+    controller_configuration_host_enforce_defaults: false
+  vars_files:
+    controller_hosts.yml
+
+  tasks:
+    - name: Importar hosts
+      ansible.controller.host:
+        controller_host: "{{ controller_host }}"
+        controller_username: "{{ controller_user }}"
+        controller_password: "{{ controller_pw }}"
+        validate_certs: false
+
+        name: "{{ __controller_host_item.name | mandatory }}"
+        new_name: "{{ __controller_host_item.new_name | default(omit, true) }}"
+        description: "{{ __controller_host_item.description | default(('' if controller_configuration_host_enforce_defaults else omit), true) }}"
+        inventory: "{{ __controller_host_item.inventory | mandatory }}"
+        enabled: "{{ __controller_host_item.enabled | default((false if controller_configuration_host_enforce_defaults else omit)) }}"
+        state: "{{ __controller_host_item.state | default(platform_state | default('present')) }}"
+        variables: "{{ __controller_host_item.variables | regex_replace('{  {', '{_~~remove~~_{') | regex_replace('_~~remove~~_', '') if (__controller_host_item.variables is defined and __controller_host_item.variables) else ({} if controller_configuration_host_enforce_defaults else omit) }}"
+
+      loop: "{{ controller_hosts }}"
+      loop_control:
+        loop_var: __controller_host_item
+        label: "Importando: {{ __controller_host_item.name }}"

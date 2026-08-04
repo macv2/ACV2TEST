@@ -1,0 +1,23 @@
+---
+controller_execution_environments:
+  - name: "Hub Minimal execution environment"
+    description: ""
+    image: "controller.example.com:8501/ee-minimal-rhel8:latest"
+    pull: ""
+  - name: "Hub Default execution environment"
+    description: ""
+    image: "controller.example.com:8501/ee-supported-rhel8:latest"
+    pull: ""
+  - name: "Minimal execution environment"
+    description: ""
+    image: "registry.redhat.io/ansible-automation-platform-25/ee-minimal-rhel8:latest"
+    pull: ""
+  - name: "Default execution environment"
+    description: ""
+    image: "registry.redhat.io/ansible-automation-platform-25/ee-supported-rhel8:latest"
+    pull: ""
+  - name: "Control Plane Execution Environment"
+    description: ""
+    image: "registry.redhat.io/ansible-automation-platform-25/ee-supported-rhel8:latest"
+    pull: ""
+...
