@@ -1,5 +1,5 @@
 ---
-- name: Crear nuevos Job_Templates en el AAP Controller
+- name: Importar Job_Templates al AAP Controller
   hosts: all
   gather_facts: false
   vars:
@@ -8,7 +8,7 @@
     job_templates.yml
 
   tasks:
-    - name: Job Template "{{ __controller_template_item.name }}"
+    - name: Importar Job Templates
       ansible.controller.job_template:
         controller_host: "{{ controller_host }}"
         controller_username: "{{ controller_user }}"
@@ -72,4 +72,5 @@
 
       loop: "{{ controller_templates }}"
       loop_control:
-        loop_var: __controller_template_item           
+        loop_var: __controller_template_item
+        label: "{{ __operation.verb }} Controller Job Template {{ __controller_template_item.name }}"
