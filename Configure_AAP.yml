@@ -16,6 +16,10 @@
   tasks:
     - name: Create a new Job Template
       ansible.controller.job_template:
+        controller_host: "{{ controller_host }}"
+        controller_username: "{{ controller_user }}"
+        controller_password: "{{ controller_pw }}"
+        validate_certs: false
         name: "job Importado"
         description: "job Importado"
         job_type: "run"
@@ -30,6 +34,10 @@
 
     - name: Create a new Job Template
       ansible.controller.job_template:
+        controller_host: "{{ controller_host }}"
+        controller_username: "{{ controller_user }}"
+        controller_password: "{{ controller_pw }}"
+        validate_certs: false
         name: "AAP_Exportar2"
         description: ""
         organization: "Default"
