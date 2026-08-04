@@ -5,7 +5,7 @@
   gather_facts: false
   collections:
     - ansible.controller
-    - infra.aap_configuration
+    #- infra.aap_configuration
 
   tasks:
     - name: Create a new Job Template
