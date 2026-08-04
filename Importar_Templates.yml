@@ -5,7 +5,7 @@
   vars:
     controller_configuration_job_templates_enforce_defaults: false
   vars_files:
-    job_templates.yml
+    controller_templates.yml
 
   tasks:
     - name: Importar Job Templates
