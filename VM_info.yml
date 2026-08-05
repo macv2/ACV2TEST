@@ -6,6 +6,18 @@
     #- community.vmware  
  
   tasks:
+    - name: Gather snapshot facts about the vm that is working
+      vmware_guest_info:
+        hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        datacenter: "{{ datacenter_name }}"
+        folder: "/{{ datacenter_name }}/"
+        name: "my_vm"
+      delegate_to: localhost
+      register: vm_info     
+    
+    
     - name: Optener info de la VM
       guest_info:
         hostname: "{{ vcenter_hostname }}"
