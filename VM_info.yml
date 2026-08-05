@@ -2,11 +2,12 @@
 - name: Info de VM
   hosts: all
   collections:
+    - vmware.vmware
     - community.vmware  
  
   tasks:
     - name: Optener info de la VM
-      community.vmware.vmware_guest_info:
+      vmware.vmware.guest_info:
         hostname: "{{ vcenter_hostname }}"
         username: "{{ vcenter_username }}"
         password: "{{ vcenter_password }}"
