@@ -11,12 +11,7 @@
         hostname: "{{ vcenter_hostname }}"
         username: "{{ vcenter_username }}"
         password: "{{ vcenter_password }}"
-        validate_certs: no
-        datacenter: "{{ datacenter_name }}"
-        folder: "/{{ datacenter_name }}/"
-        name: "{{ inventory_hostname }}"   
-        schema: vsphere
-        properties:
-          - guest.ipStack
+        validate_certs: false
+        guest_name: "my_vm"
       delegate_to: localhost
       register: vm_info
