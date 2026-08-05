@@ -4,7 +4,7 @@ controller_projects:
     description: ""
     organization: "Default"
     scm_type: "git"
-    scm_url: "https://asociacioncibao@dev.azure.com/asociacioncibao/Playbooks%20Ansible%20Cibao/_git/Playbooks%20Ansible%20Cibao"
+    scm_url: "https://asociacioncibao@dev.azure.com/asociacioncibao/Playbooks Ansible Cibao/_git/Playbooks Ansible Cibao"
     #scm_credential: "Azure Devops credentials - dralcantara"
     scm_branch: ""
     scm_clean: "False"
