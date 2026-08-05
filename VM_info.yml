@@ -4,7 +4,7 @@
  
   tasks:
     - name: Optener info de la VM
-      vmware_guest_info:
+      community.vmware.vmware_guest_info:
         hostname: "{{ vcenter_hostname }}"
         username: "{{ vcenter_username }}"
         password: "{{ vcenter_password }}"
