@@ -1,6 +1,8 @@
 ---
 - name: Info de VM
   hosts: all
+  collections:
+    - community.vmware  
  
   tasks:
     - name: Optener info de la VM
