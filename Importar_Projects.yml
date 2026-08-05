@@ -5,7 +5,7 @@
   vars:
     controller_configuration_projects_enforce_defaults: false
   vars_files:
-    projects.yml
+    controller_projects.yml
 
   tasks:
     - name: Importar projects
