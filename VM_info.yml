@@ -2,7 +2,7 @@
 - name: Info de VM
   hosts: all
   collections:
-    - vmware.vmware
+    #- vmware.vmware
     #- community.vmware  
  
   tasks:
