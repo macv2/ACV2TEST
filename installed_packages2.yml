@@ -13,14 +13,6 @@
 
     - name: Show packages report 1
       ansible.builtin.debug:
-        msg: " {{ ansible_facts['packages'] }}"
-
-    - name: Show packages report 2
-      ansible.builtin.debug:
-        msg: " {{ ansible_facts['packages'] | to_nice_json  }}"   
-
-    - name: Show packages report 3
-      ansible.builtin.debug:
         msg: " {{ ansible_facts['packages'] | to_nice_yaml  }}"
         
        # msg: " {{ ansible_facts['packages'] | list }}"        
