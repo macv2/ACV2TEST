@@ -10,3 +10,8 @@
     - name: Show total number of installed packages
       ansible.builtin.debug:
         msg: "Total packages installed: {{ ansible_facts['packages'] | length }}"
+
+    - name: Show packages report
+      ansible.builtin.debug:
+        msg: " {{ ansible_facts['packages'] }}"
+        
