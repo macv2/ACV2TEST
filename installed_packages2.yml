@@ -13,7 +13,7 @@
 
     - name: Show packages report 1
       ansible.builtin.debug:
-        msg: " {{ ansible_facts['packages'] | replace('\\n', '\n') | to_nice_json  }}"
+        msg: " {{ ansible_facts['packages'] }}"
 
     - name: Show packages report 2
       ansible.builtin.debug:
@@ -21,6 +21,6 @@
 
     - name: Show packages report 3
       ansible.builtin.debug:
-        msg: " {{ ansible_facts['packages'] | replace('\\n', '\n') | to_nice_yaml  }}"
+        msg: " {{ ansible_facts['packages'] | to_nice_yaml  }}"
         
        # msg: " {{ ansible_facts['packages'] | list }}"        
