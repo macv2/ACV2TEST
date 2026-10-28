@@ -5,7 +5,7 @@
   tasks:
     - name: Get the apt package facts
       ansible.builtin.package_facts:
-        manager: apt
+        #manager: apt
 
     - name: List installed packages
       ansible.builtin.debug:
