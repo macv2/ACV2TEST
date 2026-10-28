@@ -1,0 +1,12 @@
+---
+- name: Gather package facts
+  hosts: all
+  become: yes
+  tasks:
+    - name: Collect installed package facts
+      ansible.builtin.package_facts:
+        manager: auto
+
+    - name: Show total number of installed packages
+      ansible.builtin.debug:
+        msg: "Total packages installed: {{ ansible_facts['packages'] | length }}"
