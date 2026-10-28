@@ -13,6 +13,6 @@
 
     - name: Show packages report
       ansible.builtin.debug:
-        msg: " {{ ansible_facts['packages'] | to_nice_yaml }}"
+        msg: " {{ ansible_facts['packages'] | replace('\\n', '\n') | to_nice_json  }}"
 
        # msg: " {{ ansible_facts['packages'] | list }}"        
