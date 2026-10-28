@@ -15,10 +15,4 @@
       ansible.builtin.debug:
         msg: " {{ ansible_facts }}"
 
-    - name: Show packages report
-      ansible.builtin.debug:
-        msg: " {{ ansible_facts['packages'] | to_nice_json }}"
-
-    - name: Show packages report
-      ansible.builtin.debug:
-        msg: " {{ ansible_facts['packages'] | list }}"        
+       # msg: " {{ ansible_facts['packages'] | list }}"        
