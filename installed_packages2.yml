@@ -13,7 +13,7 @@
 
     - name: Show packages report
       ansible.builtin.debug:
-        msg: " {{ ansible_facts['packages'] }}"
+        msg: " {{ ansible_facts }}"
 
     - name: Show packages report
       ansible.builtin.debug:
